@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مستندات قالب بازارچه</title>
+<style>
+  @font-face { font-family: "Vazirmatn"; src: url("../assets/fonts/Vazirmatn-variable.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Vazirmatn", Tahoma, sans-serif; background: #f5f6f8; color: #334155; line-height: 2; direction: rtl; }
+  header { background: linear-gradient(120deg, #0b3d39, #0f766e); color: #fff; padding: 44px 20px; text-align: center; }
+  header h1 { margin: 0 0 6px; font-size: 30px; }
+  header p { margin: 0; opacity: .85; }
+  main { max-width: 860px; margin: 0 auto; padding: 30px 20px 60px; }
+  section { background: #fff; border-radius: 16px; padding: 24px 28px; margin-bottom: 20px; box-shadow: 0 4px 18px rgba(15,23,42,.06); }
+  h2 { margin: 0 0 12px; color: #0f172a; font-size: 20px; border-right: 5px solid #f59e0b; padding-right: 12px; }
+  code { background: #eef2f6; border-radius: 6px; padding: 1px 8px; direction: ltr; unicode-bidi: embed; font-family: Consolas, monospace; font-size: 13.5px; }
+  pre { background: #0f172a; color: #e2e8f0; border-radius: 12px; padding: 16px 18px; overflow-x: auto; direction: ltr; text-align: left; font-size: 13.5px; line-height: 1.7; }
+  ul { padding-right: 22px; }
+  li { margin-bottom: 4px; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { padding: 9px 12px; border-bottom: 1px solid #e5e8ee; text-align: right; }
+  th { background: #f5f6f8; }
+</style>
+</head>
+<body>
+<header>
+  <h1>مستندات قالب فروشگاهی «بازارچه»</h1>
+  <p>قالب HTML/CSS/JS راست‌چین و ریسپانسیو — نسخه ۱٫۰</p>
+</header>
+<main>
+
+<section>
+  <h2>۱. معرفی</h2>
+  <p>«بازارچه» یک قالب فروشگاهی کاملاً فارسی و راست‌چین (RTL) است که با HTML5، CSS3 و جاوااسکریپت خالص ساخته شده و به هیچ فریمورک یا کتابخانه خارجی نیاز ندارد. فونت وزیرمتن همراه قالب است و بدون اینترنت هم درست نمایش داده می‌شود.</p>
+  <ul>
+    <li>صفحات: صفحه اصلی، فروشگاه (لیست محصولات با فیلتر)، صفحه محصول، سبد خرید</li>
+    <li>سازگار با موبایل، تبلت و دسکتاپ</li>
+    <li>اسلایدر، شمارنده معکوس تخفیف، سبد خرید دمو (localStorage)، کد تخفیف نمونه</li>
+    <li>ارقام و قیمت‌ها به‌صورت فارسی با جداکننده هزارگان</li>
+  </ul>
+</section>
+
+<section>
+  <h2>۲. ساختار فایل‌ها</h2>
+<pre>shop-template/
+├── index.html        صفحه اصلی
+├── shop.html         لیست محصولات
+├── product.html      صفحه محصول
+├── cart.html         سبد خرید
+├── docs/index.html   همین راهنما
+└── assets/
+    ├── css/style.css
+    ├── js/main.js       منطق قالب
+    ├── js/products.js   داده نمونه محصولات
+    ├── fonts/           فونت وزیرمتن + مجوز OFL
+    └── img/             تصاویر نمونه (SVG)</pre>
+</section>
+
+<section>
+  <h2>۳. تغییر رنگ‌ها</h2>
+  <p>تمام رنگ‌های قالب در ابتدای فایل <code>assets/css/style.css</code> داخل بلوک <code>:root</code> تعریف شده‌اند. با تغییر چند خط، ظاهر کل سایت عوض می‌شود:</p>
+<pre>:root {
+  --brand: #0f766e;   /* رنگ اصلی */
+  --accent: #f59e0b;  /* رنگ تأکیدی (دکمه‌های مهم) */
+  --danger: #e11d48;  /* تخفیف و حذف */
+  --ink: #0f172a;     /* رنگ عنوان‌ها */
+}</pre>
+</section>
+
+<section>
+  <h2>۴. لوگو، متن‌ها و اطلاعات تماس</h2>
+  <p>لوگو در هدر هر صفحه با کلاس <code>.logo</code> قرار دارد. برای استفاده از تصویر، تگ <code>&lt;span class="logo-mark"&gt;</code> را با <code>&lt;img src="assets/img/logo.svg"&gt;</code> عوض کنید. اطلاعات تماس، آدرس و نمادهای اعتماد در بخش <code>&lt;footer&gt;</code> قرار دارند.</p>
+</section>
+
+<section>
+  <h2>۵. افزودن و ویرایش محصول</h2>
+  <p>هر محصول یک بلوک <code>&lt;article class="card"&gt;</code> است؛ برای افزودن محصول جدید یکی از کارت‌ها را کپی کنید و عنوان، قیمت و تصویر را عوض کنید. برای اینکه دکمه «افزودن به سبد» درست کار کند، دو مورد را هماهنگ کنید:</p>
+  <ul>
+    <li>مقدار <code>data-id</code> روی دکمه</li>
+    <li>یک ردیف با همان <code>id</code> در <code>assets/js/products.js</code> (عنوان، قیمت، قیمت قبل از تخفیف و نام فایل تصویر)</li>
+  </ul>
+  <p>تصاویر پیش‌فرض، SVG نمونه هستند؛ آن‌ها را با عکس واقعی (ترجیحاً WebP با نسبت ۱:۱) جایگزین کنید.</p>
+</section>
+
+<section>
+  <h2>۶. تنظیمات سبد خرید</h2>
+  <p>در ابتدای <code>assets/js/main.js</code> این مقادیر قابل تغییرند:</p>
+<pre>var FREE_SHIPPING_FROM = 2000000; // حداقل مبلغ ارسال رایگان
+var SHIPPING_COST = 45000;        // هزینه ارسال
+var COUPONS = { WELCOME: 10, BAHAR: 15 }; // کدهای تخفیف نمونه (درصد)</pre>
+  <p><b>توجه:</b> سبد خرید این قالب فقط نمایشی است و داده‌ها در مرورگر کاربر ذخیره می‌شود. برای فروشگاه واقعی باید قالب را به سیستم فروشگاه‌ساز (وردپرس/ووکامرس، لاراول و...) یا بک‌اند خودتان متصل کنید. دکمه «ادامه و تسویه حساب» عمداً به جایی وصل نشده است.</p>
+</section>
+
+<section>
+  <h2>۷. فونت</h2>
+  <p>فونت «وزیرمتن» (Vazirmatn) به‌صورت فایل متغیر (woff2) در <code>assets/fonts</code> قرار دارد و با مجوز SIL Open Font License منتشر شده است؛ متن مجوز در همان پوشه است. برای تغییر فونت، <code>@font-face</code> ابتدای فایل CSS و مقدار <code>font-family</code> روی <code>body</code> را عوض کنید.</p>
+</section>
+
+<section>
+  <h2>۸. مرورگرهای پشتیبانی‌شده</h2>
+  <table>
+    <tr><th>مرورگر</th><th>نسخه</th></tr>
+    <tr><td>Chrome / Edge</td><td>۹۰ به بالا</td></tr>
+    <tr><td>Firefox</td><td>۹۰ به بالا</td></tr>
+    <tr><td>Safari</td><td>۱۴ به بالا</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>۹. منابع و مجوزها</h2>
+  <ul>
+    <li>فونت: وزیرمتن — SIL OFL 1.1</li>
+    <li>آیکن‌ها: SVG اختصاصی داخل صفحات قالب</li>
+    <li>تصاویر محصولات: گرافیک SVG ساخته‌شده برای نمونه (بدون محدودیت استفاده)</li>
+    <li>نام‌های برند «AURA، NOVA ...» و مشخصات محصولات، کاملاً نمونه و خیالی هستند.</li>
+  </ul>
+</section>
+
+</main>
+</body>
+</html>
